@@ -11,10 +11,11 @@ nmap <silent> <F8> :TagbarToggle<CR> " Key map for tagbar toggle
 nmap <silent> <F9> :NERDTreeToggle<CR> " Toggle NERDTree
 imap ;; <esc> " Use custom keys to exit insert mode
 
+colorscheme jellybeans
+
 set showcmd " show command being typed
 set number " Line numbering one
 set background=light
-colorscheme jellybeans
 set undodir=~/vimundo " Set location for .un~ files
 set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
