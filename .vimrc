@@ -32,7 +32,7 @@ map <Leader>q :qa<CR> " Close all files
 
 let g:pdv_cfg_Version = "$id$"
 let g:pdv_cfg_Author = "Aalok Thapa<thapa.aalok@gmail.com>"
-let g:pdv_cfg_Copyright = "2013 Enventive{@link http://www.enventive.nl/}"
+let g:pdv_cfg_Copyright = ""
 let g:pdv_cfg_License = "Enventive"
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
