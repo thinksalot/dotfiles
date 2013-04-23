@@ -31,9 +31,9 @@ map <Leader>c :q<CR> " close buffer
 map <Leader>q :qa<CR> " Close all files
 
 let g:pdv_cfg_Version = "$id$"
-let g:pdv_cfg_Author = "Aalok Thapa<thapa.aalok@gmail.com>"
+let g:pdv_cfg_Author = ""
 let g:pdv_cfg_Copyright = ""
-let g:pdv_cfg_License = "Enventive"
+let g:pdv_cfg_License = ""
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
