@@ -13,6 +13,7 @@ imap ;; <esc> " Use custom keys to exit insert mode
 
 colorscheme jellybeans
 
+set nofoldenable " Disable folds by default
 set showcmd " show command being typed
 set number " Line numbering one
 set background=light
