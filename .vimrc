@@ -11,12 +11,11 @@ nmap <silent> <F8> :TagbarToggle<CR> " Key map for tagbar toggle
 nmap <silent> <F9> :NERDTreeToggle<CR> " Toggle NERDTree
 imap ;; <esc> " Use custom keys to exit insert mode
 
-colorscheme jellybeans
+colorscheme torte 
 
 set nofoldenable " Disable folds by default
 set showcmd " show command being typed
 set number " Line numbering one
-set background=light
 set undodir=~/vimundo " Set location for .un~ files
 set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
@@ -27,6 +26,7 @@ set expandtab
 
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 map <Leader>vc :tab drop ~/.vimrc<CR> " Open vim config file in a new tag
+map <Leader>ba :tab drop ~/.bash_aliases<CR> " Open bash aliases
 map <Leader>te  :ConqueTermTab bash<CR> 
 map <Leader>c :q<CR> " close buffer
 map <Leader>q :qa<CR> " Close all files
@@ -46,3 +46,6 @@ endif
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = "fancy"
 set encoding=utf-8
+
+map <silent> <leader>r :RunSpec<CR>
+map <silent> <leader>re :RunSpecLine<CR>
