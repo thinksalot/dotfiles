@@ -30,6 +30,16 @@ map <Leader>ba :tab drop ~/.bash_aliases<CR> " Open bash aliases
 map <Leader>te  :ConqueTermTab bash<CR> 
 map <Leader>c :q<CR> " close buffer
 map <Leader>q :qa<CR> " Close all files
+map <silent> <leader>r :RunSpec<CR>
+map <silent> <leader>re :RunSpecLine<CR>
+
+" flush command-t cache so that 
+" files created outside vim become available
+augroup CommandTExtension
+  autocmd!
+  autocmd FocusGained * CommandTFlush
+  autocmd BufWritePost * CommandTFlush
+augroup END
 
 let g:pdv_cfg_Version = "$id$"
 let g:pdv_cfg_Author = ""
@@ -46,6 +56,3 @@ endif
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = "fancy"
 set encoding=utf-8
-
-map <silent> <leader>r :RunSpec<CR>
-map <silent> <leader>re :RunSpecLine<CR>
