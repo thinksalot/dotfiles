@@ -2,8 +2,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-autocmd VimEnter * NERDTree " Open nerdtree by default
-autocmd VimEnter * wincmd p " Move cursor main window
+" autocmd VimEnter * NERDTree " Open nerdtree by default
+" autocmd VimEnter * wincmd p " Move cursor main window
 
 let mapleader = "," " Change map leader to a easier key
 
@@ -20,18 +20,19 @@ set undodir=~/vimundo " Set location for .un~ files
 set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set writebackup
-set tabstop=4
-set shiftwidth=2
-set expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 map <Leader>vc :tab drop ~/.vimrc<CR> " Open vim config file in a new tag
 map <Leader>ba :tab drop ~/.bash_aliases<CR> " Open bash aliases
 map <Leader>te  :ConqueTermTab bash<CR> 
 map <Leader>c :q<CR> " close buffer
+map <Leader>g :TComment<CR>
 map <Leader>q :qa<CR> " Close all files
 map <silent> <leader>r :RunSpec<CR>
 map <silent> <leader>re :RunSpecLine<CR>
+map <silent> <leader>ta :TagbarToggle<CR>
+map <F5> "zyw:exe "vimgrep/".@z."/ ./**/*.php"<CR>
 
 " flush command-t cache so that 
 " files created outside vim become available
@@ -56,3 +57,5 @@ endif
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = "fancy"
 set encoding=utf-8
+
+:map <F3> :r! date +"\%Y-\%m-\%d \%H:\%M:\%S"<cr>
