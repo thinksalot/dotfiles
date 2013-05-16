@@ -32,7 +32,9 @@ map <Leader>q :qa<CR> " Close all files
 map <silent> <leader>r :RunSpec<CR>
 map <silent> <leader>re :RunSpecLine<CR>
 map <silent> <leader>ta :TagbarToggle<CR>
-map <F5> "zyw:exe "vimgrep/".@z."/ ./**/*.php"<CR>
+" Search project for word under cursor
+" files with same extension only
+map <F5> "zyw:exe "vimgrep/".@z."/ ./**/*".expand("%:e")<CR>
 
 " flush command-t cache so that 
 " files created outside vim become available
