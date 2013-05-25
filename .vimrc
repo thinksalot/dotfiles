@@ -2,6 +2,7 @@ execute pathogen#infect()
 call pathogen#helptags()
 
 colorscheme torte 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 syntax on
 filetype plugin indent on
@@ -14,6 +15,10 @@ endif
 " Change map leader to a easier key
 let mapleader = "," 
 
+let g:ctrlp_by_map=',t'
+let g:ctrlp_cmd=',t'
+let g:ctrlp_working_path_mode='ra'
+
 " Powerline vim bindings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = "fancy"
@@ -22,12 +27,12 @@ let g:Powerline_symbols = "fancy"
 " AUTO COMMANDS
 " ============================================
 
-" flush command-t cache so that 
+" flush ctrlp cache so that 
 " files created outside vim become available
-augroup CommandTExtension
+augroup CtrlPExtension
   autocmd!
-  autocmd FocusGained * CommandTFlush
-  autocmd BufWritePost * CommandTFlush
+  autocmd FocusGained * CtrlPClearCache
+  autocmd BufWritePost * CtrlPClearCache
 augroup END
 
 " Set php autocompletion
@@ -69,7 +74,9 @@ set pastetoggle=<F2>
 
 inoremap ;; <esc> " Use custom keys to exit insert mode
 
-nnoremap <Leader>n <plug>NERDTreeTabsToggle<CR>
+nnoremap <leader>t :CtrlP<CR>
+
+noremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>vc :tab drop ~/.vimrc<CR> " Open vim config file in a new tag
 nnoremap <Leader>sv :source ~/.vimrc<CR>
 
@@ -101,7 +108,7 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 " files with same extension only
 nnoremap <F5> "zyw:exe "vimgrep/".@z."/ ./**/*".expand("%:e")<CR>
 
-" Open tag in new tag
+" Open tag in new tab
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
 noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 

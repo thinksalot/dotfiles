@@ -1,3 +1,6 @@
-vimrc
+dotfiles
 --------------------
-Vim settings that i use.
+Contains config for:
+- vim
+- xmonad
+- xbindkeys
