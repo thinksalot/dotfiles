@@ -9,3 +9,7 @@
 "amixer set Master toggle"
     m:0x0 + c:121
 	XF86AudioMute
+
+"cd ~/SyncroSVNClient\ 8/ && bash syncroSVNClient.sh"
+    m:0x4 + c:76
+	Control + F10
