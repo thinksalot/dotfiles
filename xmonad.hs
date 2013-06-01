@@ -8,6 +8,7 @@ import qualified XMonad.StackSet as W
 import System.IO
 
 import XMonad.Hooks.EwmhDesktops		-- Google chrome fullscreen hook
+import XMonad.Hooks.SetWMName			-- Java window drawing bug
 
 -- default terminal
 myTerminal="gnome-terminal"
@@ -21,7 +22,7 @@ myManageHooks=composeAll.concat $
 
 	 	[className=? "Skype" --> doShift "2:skype"],
 
-	 	-- [className=? "Gnome-terminal" --> doShift "4:command"],
+	 	[title=? "Syncro SVN Client" --> doShift "4:command"],
 
 	 	[className=? "Nautilus" --> doShift "5:filemanager"],
 
@@ -36,6 +37,10 @@ main=do
 	xmonad $defaultConfig {
 		terminal=myTerminal,
 		workspaces=myWorkspaces,
+
+		-- Java window drawing bug
+		-- This makes xmonad 'appear' as other WM for Java apps
+		startupHook=setWMName "LG3D",
 
 		-- xmobar wont start correctly w/o these 2 lines
 		manageHook=myManageHooks,
