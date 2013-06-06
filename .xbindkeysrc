@@ -13,3 +13,7 @@
 "cd ~/SyncroSVNClient\ 8/ && bash syncroSVNClient.sh"
     m:0x4 + c:76
 	Control + F10
+
+"gnome-screenshot -i"
+    m:0x0 + c:107
+	Print
