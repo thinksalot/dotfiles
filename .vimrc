@@ -88,7 +88,7 @@ nnoremap <Leader>q :qa<CR> " Close all files
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>u viw~<esc>
 
-nnoremap <Leader>g :TComment<CR>
+map <Leader>g :TComment<CR>
 
 nnoremap <silent> <leader>r :RunSpec<CR>
 nnoremap <silent> <leader>re :RunSpecLine<CR>
