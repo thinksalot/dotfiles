@@ -6,6 +6,7 @@ alias update='sudo apt-get update'
 alias c='clear'
 alias q='exit'
 alias so='source ~/.bashrc'
+alias h='cd ~'
 
 # nautilus 
 alias fm='nautilus --no-desktop &'
