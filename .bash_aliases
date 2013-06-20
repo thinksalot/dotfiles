@@ -17,3 +17,15 @@ alias kt='killall trayer'
 
 # gnone-open
 alias go='gnome-open'
+
+# apache root
+alias w='cd /var/www/'
+# dotfiles
+alias df='cd ~/dotfiles'
+
+# git
+alias ga='git add'
+alias gs='git status'
+alias gd='git diff'
+alias gp='git push origin master'
+alias gc='git commit -m'
