@@ -5,14 +5,20 @@ alias update='sudo apt-get update'
 # bash 
 alias c='clear'
 alias q='exit'
-alias so='source ~/.bashrc'
+function so(){
+	echo 'Reloading bash config'
+	source ~/.bashrc
+}
 alias h='cd ~'
 
 # nautilus 
 alias fm='nautilus --no-desktop &'
 
 # trayer
-alias tr='trayer &'
+function tr(){
+	nm-applet &
+	trayer &
+}
 alias kt='killall trayer'
 
 # gnone-open
