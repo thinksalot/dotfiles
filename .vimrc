@@ -101,7 +101,6 @@ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
-" 
 " Move up/down in omnicomplete
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
@@ -116,3 +115,5 @@ noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Open tag in vertical split
 noremap <silent><leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+nmap <Leader>k <Plug>VimwikiIndex
