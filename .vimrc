@@ -15,6 +15,7 @@ endif
 " Change map leader to a easier key
 let mapleader = "," 
 
+let g:ctrlp_map = ',t'
 let g:ctrlp_by_map=',t'
 let g:ctrlp_cmd=',t'
 let g:ctrlp_working_path_mode='ra'
@@ -100,6 +101,7 @@ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
+" 
 " Move up/down in omnicomplete
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
