@@ -17,3 +17,7 @@
 "gnome-screenshot -i"
 	m:0x0 + c:107
 	Print
+
+"nautilus --no-desktop"
+	m:0x40 + c:65
+    Mod4 + space
