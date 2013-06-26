@@ -68,6 +68,7 @@ set history=1000
 set undolevels=1000
 " set list
 set pastetoggle=<F2> 
+set incsearch
 
 " ============================================
 " KEY MAPPINGS
