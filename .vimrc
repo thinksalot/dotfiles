@@ -17,7 +17,7 @@ let mapleader = ","
 
 let g:ctrlp_map = ',t'
 let g:ctrlp_by_map=',t'
-let g:ctrlp_cmd=',t'
+let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
 
 " Powerline vim bindings
@@ -57,10 +57,14 @@ set encoding=utf-8
 set nofoldenable " Disable folds by default
 set showcmd " show command being typed
 set number " Line numbering on
+
+set undofile
 set undodir=~/vimundo " Set location for .un~ files
+
 set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set writebackup
+
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set autoread
 set title
@@ -69,7 +73,6 @@ set undolevels=1000
 " set list
 set pastetoggle=<F2> 
 set incsearch
-set hlsearch
 
 " ============================================
 " KEY MAPPINGS
