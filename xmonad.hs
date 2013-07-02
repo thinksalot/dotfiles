@@ -34,6 +34,7 @@ myManageHooks=composeAll.concat $
 main=do
 	xmproc <- spawnPipe "xbindkeys"
 	xmproc <- spawnPipe "feh --bg-fill ~/Pictures/red.png"
+	xmproc <- spawnPipe "nautilus --no-desktop -n" -- Show all partitions in nautilus
 	xmonad $defaultConfig {
 		terminal=myTerminal,
 		workspaces=myWorkspaces,
