@@ -21,8 +21,11 @@ let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
 
 " Powerline vim bindings
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=/home/aalok/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = "fancy"
+" always show the statusline, required for powerline to show up in single window
+" http://stackoverflow.com/a/14114786
+set laststatus=2 
 
 " ============================================
 " AUTO COMMANDS
