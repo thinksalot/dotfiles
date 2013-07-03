@@ -35,3 +35,6 @@ alias gs='git status'
 alias gd='git diff'
 alias gp='git push origin master'
 alias gc='git commit -m'
+
+# youtube-dl, download 480p flv format 
+alias yd='youtube-dl -f35'
