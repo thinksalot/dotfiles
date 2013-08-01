@@ -19,7 +19,12 @@ function tr(){
 	nm-applet &
 	trayer &
 }
-alias kt='killall trayer'
+alias kt='killall trayer && killall nm-applet'
+
+# dual monitor
+alias dual="xrandr --output HDMI1 --off --output LVDS1 --mode 1366x768 --pos 0x0 --rotate normal --output DP2 --off --output DP1 --off --output VGA1 --mode 1440x900 --pos 1366x0 --rotate normal"
+#single monitor
+alias single="xrandr --output HDMI1 --off --output LVDS1 --mode 1366x768 --pos 0x0 --rotate normal --output DP2 --off --output DP1 --off --output VGA1 --off"
 
 # gnone-open
 alias go='gnome-open'
@@ -28,6 +33,7 @@ alias go='gnome-open'
 alias w='cd /var/www/'
 # dotfiles
 alias df='cd ~/dotfiles'
+alias ocned='cd /var/www/po-system/public_html/'
 
 # git
 alias ga='git add'
