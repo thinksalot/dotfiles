@@ -47,3 +47,6 @@ alias gc='git commit -m'
 
 # youtube-dl, download 480p flv format 
 alias yd='youtube-dl -f35'
+
+# chrome work profile
+alias cw='google-chrome --user-data-dir=/home/$(whoami)/Dropbox/Google-chrome-work-profile'
