@@ -46,7 +46,7 @@ alias gp='git push origin master'
 alias gc='git commit -m'
 
 # youtube-dl, download 480p flv format 
-alias yd='youtube-dl -f35'
+alias yd='youtube-dl -t -f35'
 
 # chrome work profile
-alias cw='google-chrome --user-data-dir=/home/$(whoami)/Dropbox/Google-chrome-work-profile'
+alias cw='google-chrome --user-data-dir=/home/$(whoami)/Dropbox/Google-chrome-work-profile &'
