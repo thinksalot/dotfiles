@@ -50,3 +50,6 @@ alias yd='youtube-dl -t -f35'
 
 # chrome work profile
 alias cw='google-chrome --user-data-dir=/home/$(whoami)/Dropbox/Google-chrome-work-profile &'
+
+# lock from commandline
+alias lock='gnome-screensaver-command -l'
