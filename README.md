@@ -5,3 +5,4 @@ Contains config for:
 - bash
 - xmonad
 - xbindkeys
+- xmobar
