@@ -37,10 +37,11 @@ main=do
 	xmproc <- spawnPipe "xbindkeys"
 	xmproc <- spawnPipe "feh --bg-fill ~/Pictures/pattern-wallpaper.png"
 	xmproc <- spawnPipe "nautilus --no-desktop -n" -- Show all partitions in nautilus
-	xmporc <- spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x000000 --height 17 &"
+	xmporc <- spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0xcecece --height 17 &"
 	xmproc <- spawnPipe "nm-applet --sm-disable &"
 	xmproc <- spawnPipe "gnome-power-manager &"
 	xmproc <- spawnPipe "dropbox start"
+	xmprox <- spawnPipe "gnome-sound-applet"
 	xmproc <- spawnPipe "xmobar"
 
 	xmonad $defaultConfig {
