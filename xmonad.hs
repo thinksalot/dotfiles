@@ -42,7 +42,7 @@ main=do
 	xmproc <- spawnPipe "gnome-power-manager &"
 	xmproc <- spawnPipe "dropbox start"
 	xmprox <- spawnPipe "gnome-sound-applet"
-	xmproc <- spawnPipe "xmobar"
+	xmproc <- spawnPipe "xmobar" -- Launch xmobar last, after spawning all applets
 
 	xmonad $defaultConfig {
 		logHook = dynamicLogWithPP xmobarPP
