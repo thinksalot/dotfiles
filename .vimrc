@@ -9,7 +9,7 @@ filetype plugin indent on
 
 "enable 256 colors for terminal vim
 if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
+  set t_Co=256
 endif
 
 " Change map leader to a easier key
@@ -30,6 +30,40 @@ set laststatus=2
 " ============================================
 " AUTO COMMANDS
 " ============================================
+
+" http://stackoverflow.com/a/6174010
+" http://stackoverflow.com/a/1413352
+"
+" indentation for php files
+if !exists("*PhpIndent")
+  function PhpIndent()
+    " echom "setting php options"
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  endfunction
+endif
+
+" indentation for ruby files
+if !exists("*RubyIndent")
+  function RubyIndent()
+    " echom "setting ruby options"
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  endfunction
+endif
+
+" indentation for python files
+if !exists("*PythonIndent")
+  function PythonIndent()
+    " echom "python indent set"
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  endfunction
+endif
+
+augroup indentCodeGroup
+  autocmd!
+  autocmd BufRead,BufEnter /var/www/po-system/* call PhpIndent()
+  autocmd BufRead,BufEnter ~/faves/* call RubyIndent()
+  autocmd FileType python call PythonIndent()
+augroup END
 
 " flush ctrlp cache so that 
 " files created outside vim become available
@@ -57,6 +91,8 @@ set tags=./tags;
 
 set encoding=utf-8
 
+set backspace=2
+
 set nofoldenable " Disable folds by default
 set showcmd " show command being typed
 set number " Line numbering on
@@ -68,7 +104,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set writebackup
 
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set autoread
 set title
 set history=1000
