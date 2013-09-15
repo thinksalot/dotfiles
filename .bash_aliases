@@ -15,10 +15,10 @@ alias h='cd ~'
 alias fm='nautilus --no-desktop &'
 
 # trayer
-function tr(){
-  nm-applet &
-  trayer &
-}
+# function tr(){
+#   nm-applet &
+#   trayer &
+# }
 alias kt='killall trayer && killall nm-applet'
 
 # dual monitor
