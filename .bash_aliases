@@ -6,8 +6,8 @@ alias update='sudo apt-get update'
 alias c='clear'
 alias q='exit'
 function so(){
-	echo 'Reloading bash config'
-	source ~/.bashrc
+  echo 'Reloading bash config'
+  source ~/.bashrc
 }
 alias h='cd ~'
 
@@ -16,8 +16,8 @@ alias fm='nautilus --no-desktop &'
 
 # trayer
 function tr(){
-	nm-applet &
-	trayer &
+  nm-applet &
+  trayer &
 }
 alias kt='killall trayer && killall nm-applet'
 
