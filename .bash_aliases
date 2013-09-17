@@ -53,3 +53,6 @@ alias cw='google-chrome --user-data-dir=/home/$(whoami)/Dropbox/Google-chrome-wo
 
 # lock from commandline
 alias lock='gnome-screensaver-command -l'
+
+# path to vim bundle
+alias vb='cd ~/.vim/bundle/'
