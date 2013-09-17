@@ -10,6 +10,8 @@ filetype plugin indent on
 " makes preview slower, improves performance
 let g:instant_markdown_slow=1
 
+let g:delimitMate_expand_cr=1
+
 "enable 256 colors for terminal vim
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
@@ -79,6 +81,13 @@ augroup END
 " Set php autocompletion
 " http://stackoverflow.com/questions/5169638/autocompletion-in-vim
 au FileType php setl ofu=phpcomplete#CompletePHP
+
+" emphasize word
+au FileType markdown nnoremap <Leader>we bi**<esc>ea**<esc>
+" emphasize line
+au FileType markdown nnoremap <Leader>le ^i**<esc>$a**<esc>
+" horizontal rule
+au FileType markdown nnoremap <Leader>hr o---<esc>
 
 " autocmd VimEnter * NERDTree " Open nerdtree by default
 " autocmd VimEnter * wincmd p " Move cursor main window
