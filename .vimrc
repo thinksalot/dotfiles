@@ -7,6 +7,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 syntax on
 filetype plugin indent on
 
+" makes preview slower, improves performance
+let g:instant_markdown_slow=1
+
 "enable 256 colors for terminal vim
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
