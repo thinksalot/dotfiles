@@ -2,15 +2,9 @@ execute pathogen#infect()
 call pathogen#helptags()
 
 colorscheme torte 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 syntax on
 filetype plugin indent on
-
-" makes preview slower, improves performance
-let g:instant_markdown_slow=1
-
-let g:delimitMate_expand_cr=1
 
 "enable 256 colors for terminal vim
 if $COLORTERM == 'gnome-terminal'
@@ -19,18 +13,6 @@ endif
 
 " Change map leader to a easier key
 let mapleader = "," 
-
-let g:ctrlp_map = ',t'
-let g:ctrlp_by_map=',t'
-let g:ctrlp_cmd='CtrlP'
-let g:ctrlp_working_path_mode='ra'
-
-" Powerline vim bindings
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:Powerline_symbols = "fancy"
-" always show the statusline, required for powerline to show up in single window
-" http://stackoverflow.com/a/14114786
-set laststatus=2 
 
 " ============================================
 " AUTO COMMANDS
@@ -103,6 +85,7 @@ set tags=./tags;
 
 set encoding=utf-8
 
+" fixes weird behavior of backspace
 set backspace=2
 
 set nofoldenable " Disable folds by default
@@ -122,8 +105,18 @@ set title
 set history=1000
 set undolevels=1000
 " set list
-set pastetoggle=<F2> 
+set pastetoggle=<F2>  " fixes indentation while copy pasting
 set incsearch
+
+" always show the statusline, required for powerline to show up in single window
+" http://stackoverflow.com/a/14114786
+set laststatus=2 
+
+set splitbelow " Split below when using help tags
+set splitright " Split right when splitting from nerdtree
+
+set nocompatible
+set cursorline
 
 " ============================================
 " KEY MAPPINGS
@@ -173,3 +166,25 @@ noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 noremap <silent><leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 nmap <Leader>k <Plug>VimwikiIndex
+
+" ============================================
+" Plugin specific config
+" ============================================
+" Vim instant markdown
+" makes preview slower, improves performance
+let g:instant_markdown_slow=1
+
+" DelimitMate
+" start function body nested 
+let g:delimitMate_expand_cr=1
+
+" Ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = ',t'
+let g:ctrlp_by_map=',t'
+let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_working_path_mode='ra'
+
+" Powerline vim bindings
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_symbols = "fancy"
