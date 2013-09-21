@@ -88,6 +88,9 @@ set encoding=utf-8
 " fixes weird behavior of backspace
 set backspace=2
 
+" automatically read files modified outside vim
+set autoread 
+
 set nofoldenable " Disable folds by default
 set showcmd " show command being typed
 set number " Line numbering on
@@ -106,7 +109,9 @@ set history=1000
 set undolevels=1000
 " set list
 set pastetoggle=<F2>  " fixes indentation while copy pasting
-set incsearch
+set incsearch " start search as you type
+set hlsearch " highlight search
+set ignorecase " ignore case while searching
 
 " always show the statusline, required for powerline to show up in single window
 " http://stackoverflow.com/a/14114786
@@ -117,6 +122,7 @@ set splitright " Split right when splitting from nerdtree
 
 set nocompatible
 set cursorline
+
 
 " ============================================
 " KEY MAPPINGS
@@ -138,7 +144,9 @@ nnoremap <Leader>q :qa<CR> " Close all files
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>u viw~<esc>
 
-map <Leader>g :TComment<CR>
+nnoremap <Leader>g :TComment<CR>
+" comment selected words in visual mode
+vnoremap <Leader>g :TCommentInline<CR>
 
 nnoremap <silent> <leader>r :RunSpec<CR>
 nnoremap <silent> <leader>re :RunSpecLine<CR>
