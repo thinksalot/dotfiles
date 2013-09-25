@@ -138,7 +138,7 @@ nnoremap <Leader>sv :source ~/.vimrc<CR>
 
 nnoremap <Leader>ba :tab drop ~/.bash_aliases<CR> " Open bash aliases
 
-nnoremap <Leader>c :q<CR> " close buffer
+nnoremap <Leader>c :close<CR> " close buffer
 nnoremap <Leader>q :qa<CR> " Close all files
 
 nnoremap <silent> <leader>w :w<CR>
