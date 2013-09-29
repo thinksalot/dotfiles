@@ -145,8 +145,6 @@ nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>u viw~<esc>
 
 nnoremap <Leader>g :TComment<CR>
-" comment selected words in visual mode
-vnoremap <Leader>g :TCommentInline<CR>
 
 nnoremap <silent> <leader>r :RunSpec<CR>
 nnoremap <silent> <leader>re :RunSpecLine<CR>
