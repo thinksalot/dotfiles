@@ -74,10 +74,12 @@ au FileType markdown nnoremap <Leader>hr o---<esc>
 " autocmd VimEnter * NERDTree " Open nerdtree by default
 " autocmd VimEnter * wincmd p " Move cursor main window
 
+au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " ============================================
 " GENERAL SETTINGS
 " ============================================
+
 
 " Search for tags
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
@@ -179,6 +181,9 @@ nmap <Leader>k <Plug>VimwikiIndex
 " Vim instant markdown
 " makes preview slower, improves performance
 let g:instant_markdown_slow=1
+
+" Show NERDTree bookmarks on startup
+let NERDTreeShowBookmarks=1
 
 " DelimitMate
 " start function body nested 
