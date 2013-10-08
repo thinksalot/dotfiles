@@ -87,6 +87,9 @@ set tags=./tags;
 
 set encoding=utf-8
 
+" Highlight column 80 
+set colorcolumn=80
+
 " fixes weird behavior of backspace
 set backspace=2
 
@@ -99,16 +102,17 @@ set number " Line numbering on
 
 set undofile
 set undodir=~/vimundo " Set location for .un~ files
+set undolevels=1000
 
 set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set writebackup
+set backupdir=~/tmp
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set autoread
 set title
 set history=1000
-set undolevels=1000
 " set list
 set pastetoggle=<F2>  " fixes indentation while copy pasting
 set incsearch " start search as you type
@@ -184,6 +188,9 @@ let g:instant_markdown_slow=1
 
 " Show NERDTree bookmarks on startup
 let NERDTreeShowBookmarks=1
+
+" Change cwd with the tree root
+let NERDTreeChDirMode=2
 
 " DelimitMate
 " start function body nested 
