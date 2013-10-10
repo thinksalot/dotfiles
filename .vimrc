@@ -48,6 +48,7 @@ endif
 augroup indentCodeGroup
   autocmd!
   autocmd BufRead,BufEnter /var/www/po-system/* call PhpIndent()
+  autocmd BufRead,BufEnter /var/www/dronten/* call PhpIndent()
   autocmd BufRead,BufEnter ~/faves/* call RubyIndent()
   autocmd FileType python call PythonIndent()
 augroup END
@@ -88,7 +89,7 @@ set tags=./tags;
 set encoding=utf-8
 
 " Highlight column 80 
-set colorcolumn=80
+" set colorcolumn=80
 
 " fixes weird behavior of backspace
 set backspace=2
