@@ -180,6 +180,10 @@ noremap <silent><leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 nmap <Leader>k <Plug>VimwikiIndex
 
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
+map <C-n> :tabnew<CR>
+
 " ============================================
 " Plugin specific config
 " ============================================
