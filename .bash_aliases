@@ -56,3 +56,6 @@ alias lock='gnome-screensaver-command -l'
 
 # path to vim bundle
 alias vb='cd ~/.vim/bundle/'
+
+# tail php errors
+alias tphp='tail -f /var/log/apache2/error.log'
