@@ -37,6 +37,7 @@ alias w='cd /var/www/'
 # dotfiles
 alias df='cd ~/dotfiles'
 alias ocned='cd /var/www/po-system/public_html/'
+alias dr='cd /var/www/dronten/'
 
 # git
 alias ga='git add'
