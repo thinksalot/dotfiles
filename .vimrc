@@ -211,3 +211,10 @@ let g:ctrlp_working_path_mode='ra'
 " Powerline vim bindings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = "fancy"
+
+" Ultisnips custom mappings
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-k>"
+
+" YouCompleteMe
+let g:ycm_key_list_previous_completion=['<Up>']
