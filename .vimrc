@@ -184,6 +184,9 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
+" Format function params, add leading and ending space
+nmap <Leader>ff vi(S  <CR>
+
 " ============================================
 " Plugin specific config
 " ============================================
