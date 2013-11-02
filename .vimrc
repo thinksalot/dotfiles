@@ -160,7 +160,7 @@ nnoremap <silent> <leader>m :TagbarToggle<CR>
 
 " Generate php docs
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
+nnoremap <C-P> :call PhpDoc()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
 " Move up/down in omnicomplete
@@ -186,6 +186,10 @@ map <C-n> :tabnew<CR>
 
 " Format function params, add leading and ending space
 nmap <Leader>ff vi(S  <CR>
+
+" Toggle search highlight
+" :noh
+nmap <Leader>h :set hlsearch!<CR>
 
 " ============================================
 " Plugin specific config
@@ -221,3 +225,9 @@ let g:UltiSnipsListSnippets="<c-k>"
 
 " YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+
+" Dbext
+let g:dbext_default_profile_mysql_dronten= 'type=MYSQL:user=root:passwd=:dbname=dronten:host=localhost'
+let g:dbext_default_profile = 'mysql_dronten'
