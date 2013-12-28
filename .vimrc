@@ -97,12 +97,12 @@ set backspace=2
 " automatically read files modified outside vim
 set autoread 
 
-set nofoldenable " Disable folds by default
-set showcmd " show command being typed
-set number " Line numbering on
+set nofoldenable          " Disable folds by default
+set showcmd               " show command being typed
+set number                " Line numbering on
 
 set undofile
-set undodir=~/vimundo " Set location for .un~ files
+set undodir=~/vimundo     " Set location for .un~ files
 set undolevels=1000
 
 set backupskip=/tmp/*,/private/tmp/* 
@@ -115,17 +115,17 @@ set autoread
 set title
 set history=1000
 " set list
-set pastetoggle=<F2>  " fixes indentation while copy pasting
-set incsearch " start search as you type
-set hlsearch " highlight search
-set ignorecase " ignore case while searching
+set pastetoggle=<F2>      " fixes indentation while copy pasting
+set incsearch             " start search as you type
+set hlsearch              " highlight search
+set ignorecase            " ignore case while searching
 
 " always show the statusline, required for powerline to show up in single window
 " http://stackoverflow.com/a/14114786
 set laststatus=2 
 
-set splitbelow " Split below when using help tags
-set splitright " Split right when splitting from nerdtree
+set splitbelow           " Split below when using help tags
+set splitright           " Split right when splitting from nerdtree
 
 set nocompatible
 set cursorline
@@ -135,15 +135,18 @@ set cursorline
 " KEY MAPPINGS
 " ============================================
 
-inoremap ;; <esc> " Use custom keys to exit insert mode
 
+" Use custom keys to exit insert mode
+inoremap ;; <esc> 
 nnoremap <leader>t :CtrlP<CR>
 
 noremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>vc :tab drop ~/.vimrc<CR> " Open vim config file in a new tag
+" Open vim config file in a new tag
+nnoremap <Leader>vc :tab drop ~/.vimrc<CR>
 nnoremap <Leader>sv :source ~/.vimrc<CR>
 
-nnoremap <Leader>ba :tab drop ~/.bash_aliases<CR> " Open bash aliases
+" Open bash aliases
+nnoremap <Leader>ba :tab drop ~/.bash_aliases<CR>
 
 nnoremap <Leader>c :close<CR> " close buffer
 nnoremap <Leader>q :qa<CR> " Close all files
@@ -226,7 +229,7 @@ let g:UltiSnipsListSnippets="<c-k>"
 " YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Dbext
 let g:dbext_default_profile_mysql_dronten= 'type=MYSQL:user=root:passwd=:dbname=dronten:host=localhost'
