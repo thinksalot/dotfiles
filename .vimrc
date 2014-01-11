@@ -217,6 +217,10 @@ let g:ctrlp_map = ',t'
 let g:ctrlp_by_map=',t'
 let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|framework\/external\|framework\/api\|vendor$\|files\|tests\/api\|docs$',
+  \ 'file': '\v\.(exe|so|dll|xls|gif|png|jpeg|jpg|lock|zip)$',
+\ }
 
 " Powerline vim bindings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
