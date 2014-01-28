@@ -176,12 +176,13 @@ nnoremap <F5> "zyw:exe "vimgrep/".@z."/ ./**/*".expand("%:e")<CR>
 
 " Open tag in new tab
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
-noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+"
+" (use tjump since it shows a list if multiple definitions if found)
+" http://stackoverflow.com/a/660756
+noremap <C-\> :tab split<CR>:exec("tjump ".expand("<cword>"))<CR>
 
 " Open tag in vertical split
-noremap <silent><leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-nmap <Leader>k <Plug>VimwikiIndex
+noremap <silent><leader>\ :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
 
 map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
@@ -193,6 +194,12 @@ nmap <Leader>ff vi(S  <CR>
 " Toggle search highlight
 " :noh
 nmap <Leader>h :set hlsearch!<CR>
+
+" Reselect last visual select after using indent keys
+" gv reselects last visual selection
+" http://superuser.com/a/310424
+vmap > >gv
+vmap < <gv
 
 " ============================================
 " Plugin specific config
