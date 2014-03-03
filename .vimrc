@@ -201,6 +201,9 @@ nmap <Leader>h :set hlsearch!<CR>
 vmap > >gv
 vmap < <gv
 
+" colors for search highlight
+hi Search cterm=NONE ctermfg=black ctermbg=green
+
 " ============================================
 " Plugin specific config
 " ============================================
@@ -245,3 +248,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Dbext
 let g:dbext_default_profile_mysql_dronten= 'type=MYSQL:user=root:passwd=:dbname=dronten:host=localhost'
 let g:dbext_default_profile = 'mysql_dronten'
+
+" bling
+let g:bling_time=100
+let g:bling_color='LightBlue'
