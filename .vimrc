@@ -130,6 +130,13 @@ set splitright           " Split right when splitting from nerdtree
 set nocompatible
 set cursorline
 
+" colors for search highlight
+hi Search cterm=NONE ctermfg=black ctermbg=green
+
+" Makes 81st column stand out
+" http://www.youtube.com/watch?v=aHm36-na4-4
+hi ColorColumn ctermbg=DarkGray
+call matchadd('ColorColumn', '\%81v', 100 )
 
 " ============================================
 " KEY MAPPINGS
@@ -201,8 +208,8 @@ nmap <Leader>h :set hlsearch!<CR>
 vmap > >gv
 vmap < <gv
 
-" colors for search highlight
-hi Search cterm=NONE ctermfg=black ctermbg=green
+" Write file in sudo mode
+cmap w!! w !sudo tee > /dev/null %
 
 " ============================================
 " Plugin specific config
@@ -250,5 +257,5 @@ let g:dbext_default_profile_mysql_dronten= 'type=MYSQL:user=root:passwd=:dbname=
 let g:dbext_default_profile = 'mysql_dronten'
 
 " bling
-let g:bling_time=100
+let g:bling_time=50
 let g:bling_color='LightBlue'
