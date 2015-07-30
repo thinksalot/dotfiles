@@ -11,6 +11,8 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+
 " Change map leader to a easier key
 let mapleader = "," 
 
@@ -22,17 +24,24 @@ let mapleader = ","
 " http://stackoverflow.com/a/1413352
 "
 " indentation for php files
-if !exists("*PhpIndent")
-  function PhpIndent()
-    " echom "setting php options"
+if !exists("*PhpIndentTab")
+  function PhpIndentTab()
+    " echom "setting php options(tab indent)"
     setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  endfunction
+endif
+
+if !exists("*PhpIndentSpace")
+  function PhpIndentSpace()
+    " echom "setting php options(space indent)"
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
   endfunction
 endif
 
 " indentation for ruby files
 if !exists("*RubyIndent")
   function RubyIndent()
-    " echom "setting ruby options"
+    " echom "setting ruby options(space indent)"
     setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   endfunction
 endif
@@ -40,16 +49,19 @@ endif
 " indentation for python files
 if !exists("*PythonIndent")
   function PythonIndent()
-    " echom "python indent set"
+    " echom "python indent set(space indent)"
     setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
   endfunction
 endif
 
 augroup indentCodeGroup
   autocmd!
-  autocmd BufRead,BufEnter /var/www/po-system/* call PhpIndent()
-  autocmd BufRead,BufEnter /var/www/dronten/* call PhpIndent()
-  autocmd BufRead,BufEnter ~/faves/* call RubyIndent()
+  autocmd FileType php call PhpIndentSpace()
+  autocmd BufRead,BufEnter /var/www/po-system/* call PhpIndentTab()
+  autocmd BufRead,BufEnter /var/www/dronten/* call PhpIndentTab()
+  autocmd BufRead,BufEnter /var/www/affiliateBO/* call PhpIndentTab()
+  autocmd BufRead,BufEnter /var/www/inventory-system/* call PhpIndentTab()
+  autocmd FileType ruby,eruby call RubyIndent()
   autocmd FileType python call PythonIndent()
 augroup END
 
@@ -77,10 +89,51 @@ au FileType markdown nnoremap <Leader>hr o---<esc>
 
 au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
+" set cwd of the window buffer to the current file
+" so that NERDTree behaves correctly
+autocmd BufEnter * lcd %:p:h
+
+autocmd FileType js nnoremap <C-p> :JsDoc<CR>
+
+function! RunPHPTestFunction()
+
+  let filePath = expand('%:p')
+  let functionName = cfi#format("%s",'')
+
+  echom filePath
+
+  if empty(functionName)
+    echo 'Not a function!'
+    return
+  endif
+
+  if( !empty( matchstr( filePath, 'dronten' ) ) )
+    let torun = '/var/www/dronten/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
+  else
+    let torun = '/var/www/inventory-system/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
+  endif
+
+  call VimuxRunCommand(torun)
+
+endfunction
+
+function! RunPHPTestFile()
+
+  let filePath = expand('%:p')
+
+  if( !empty( matchstr( filePath, 'dronten' ) ) )
+    let torun = '/var/www/dronten/tests/run_tests.sh ' . filePath
+  else
+    let torun = '/var/www/inventory-system/tests/run_tests.sh ' . filePath
+  endif
+
+  call VimuxRunCommand(torun)
+
+endfunction
+
 " ============================================
 " GENERAL SETTINGS
 " ============================================
-
 
 " Search for tags
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
@@ -142,7 +195,6 @@ call matchadd('ColorColumn', '\%81v', 100 )
 " KEY MAPPINGS
 " ============================================
 
-
 " Use custom keys to exit insert mode
 inoremap ;; <esc> 
 nnoremap <leader>t :CtrlP<CR>
@@ -163,8 +215,13 @@ nnoremap <silent> <leader>u viw~<esc>
 
 nnoremap <Leader>g :TComment<CR>
 
-nnoremap <silent> <leader>r :RunSpec<CR>
-nnoremap <silent> <leader>re :RunSpecLine<CR>
+" Map test runners for rails
+au FileType ruby nnoremap <silent> <leader>r :RunSpec<CR>
+au FileType ruby nnoremap <silent> <leader>re :RunSpecLine<CR>
+
+" Map test runners for php
+au FileType php nnoremap <silent> <leader>r :call RunPHPTestFile()<CR>
+au FileType php nnoremap <silent> <leader>re :call RunPHPTestFunction()<CR>
 
 nnoremap <silent> <leader>m :TagbarToggle<CR>
 
@@ -172,6 +229,12 @@ nnoremap <silent> <leader>m :TagbarToggle<CR>
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDoc()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
+
+" Align visually selected text on comma
+vnoremap <Leader>fc :Tab /,<CR>
+
+" Align array values
+vnoremap <Leader>fa :Tab /=><CR>gv :Tab /,<CR>
 
 " Move up/down in omnicomplete
 " inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
@@ -195,6 +258,9 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
+map <Leader>H :tabm -1<CR>
+map <Leader>L :tabm +1<CR>
+
 " Format function params, add leading and ending space
 nmap <Leader>ff vi(S  <CR>
 
@@ -210,6 +276,9 @@ vmap < <gv
 
 " Write file in sudo mode
 cmap w!! w !sudo tee > /dev/null %
+
+" Close tmux runner created by vimux
+map <Leader>vq :VimuxCloseRunner<CR>
 
 " ============================================
 " Plugin specific config
@@ -235,13 +304,16 @@ let g:ctrlp_by_map=',t'
 let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|framework\/external\|framework\/api\|vendor$\|files\|tests\/api\|docs$',
+  \ 'dir' :  '\.git$\|\.hg$\|\.svn$\|framework\/external\|framework\/api\|vendor$\|files\|tests\/api\|docs$',
   \ 'file': '\v\.(exe|so|dll|xls|gif|png|jpeg|jpg|lock|zip)$',
 \ }
 
 " Powerline vim bindings
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:Powerline_symbols = "fancy"
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" let g:Powerline_symbols = "fancy"
+
+" Airline
+let g:airline_powerline_fonts=1
 
 " Ultisnips custom mappings
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -253,9 +325,18 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Dbext
-let g:dbext_default_profile_mysql_dronten= 'type=MYSQL:user=root:passwd=:dbname=dronten:host=localhost'
+let g:dbext_default_profile_mysql_dronten = 'type=MYSQL:user=root:passwd=:dbname=dronten:host=localhost'
 let g:dbext_default_profile = 'mysql_dronten'
+let g:dbext_default_prompt_for_parameters = 1
+let g:dbext_default_parse_statements = 'select,update,show'
 
 " bling
-let g:bling_time=50
 let g:bling_color='LightBlue'
+
+" jsdoc
+let g:jsdoc_default_mapping = 0
+
+" emmet
+let g:user_emmet_leader_key='<C-E>'
+
+let g:ack_default_options=" -H --nocolor --nogroup --column"

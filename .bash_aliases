@@ -11,6 +11,8 @@ function so(){
 }
 alias h='cd ~'
 
+alias d='cd ~/Downloads'
+
 # nautilus 
 alias fm='nautilus --no-desktop &'
 
@@ -38,6 +40,8 @@ alias w='cd /var/www/'
 alias df='cd ~/dotfiles'
 alias ocned='cd /var/www/po-system/public_html/'
 alias dr='cd /var/www/dronten/'
+alias is='cd /var/www/inventory-system/'
+alias bio='cd /var/www/affiliateBO/'
 
 # git
 alias ga='git add'
@@ -60,3 +64,16 @@ alias vb='cd ~/.vim/bundle/'
 
 # tail php errors
 alias tphp='tail -f /var/log/apache2/error.log'
+
+# tail mysql queries
+alias tmysql='tail -f /var/log/mysql/mysql.log'
+
+function rdb(){
+  echo "Resetting database: $1 ..."
+  mysql -uroot -e "drop database $1; create database $1;"
+  echo "Complete."
+}
+
+if [ -f ~/Dropbox/.bash_aliases ]; then
+    . ~/Dropbox/.bash_aliases
+fi
