@@ -39,9 +39,9 @@ alias w='cd /var/www/'
 # dotfiles
 alias df='cd ~/dotfiles'
 alias ocned='cd /var/www/po-system/public_html/'
-alias dr='cd /var/www/dronten/'
-alias is='cd /var/www/inventory-system/'
-alias bio='cd /var/www/affiliateBO/'
+alias dr='cd /var/www/html/dronten/'
+alias is='cd /var/www/html/inventory-system/'
+alias bio='cd /var/www/html/affiliateBO/'
 
 # git
 alias ga='git add'
