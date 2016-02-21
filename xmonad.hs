@@ -18,7 +18,7 @@ myWorkspaces=["1:web","2:vim","3:skype","4:command","5:filemanager","6:firefox",
 
 myManageHooks=composeAll.concat $
 	[
-		[className=? "Google-chrome" --> doShift "1:web"],
+		[className=? "google-chrome" --> doShift "1:web"],
 
 	 	[className=? "Skype" --> doShift "3:skype"],
 
