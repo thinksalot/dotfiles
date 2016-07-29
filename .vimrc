@@ -64,7 +64,7 @@ augroup indentCodeGroup
   autocmd BufRead,BufEnter /var/www/html/po-system/* call PhpIndentTab()
   autocmd BufRead,BufEnter /var/www/html/dronten/* call PhpIndentTab()
   autocmd BufRead,BufEnter /var/www/html/affiliateBO/* call PhpIndentTab()
-  autocmd BufRead,BufEnter /var/www/html/inventory-system/* call PhpIndentTab()
+  autocmd BufRead,BufEnter /var/www/html/leanstock/* call PhpIndentTab()
   autocmd FileType ruby,eruby call RubyIndent()
   autocmd FileType python call PythonIndent()
 augroup END
@@ -114,7 +114,7 @@ function! RunPHPTestFunction()
   if( !empty( matchstr( filePath, 'dronten' ) ) )
     let torun = '/var/www/html/dronten/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
   else
-    let torun = '/var/www/html/inventory-system/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
+    let torun = '/var/www/html/leanstock/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
   endif
 
   call VimuxRunCommand(torun)
@@ -128,7 +128,7 @@ function! RunPHPTestFile()
   if( !empty( matchstr( filePath, 'dronten' ) ) )
     let torun = '/var/www/html/dronten/tests/run_tests.sh ' . filePath
   else
-    let torun = '/var/www/html/inventory-system/tests/run_tests.sh ' . filePath
+    let torun = '/var/www/html/leanstock/tests/run_tests.sh ' . filePath
   endif
 
   call VimuxRunCommand(torun)
