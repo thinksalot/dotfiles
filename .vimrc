@@ -37,8 +37,8 @@ endif
 
 if !exists("*PhpIndentSpace")
   function PhpIndentSpace()
-    " echom "setting php options(space indent)"
-    setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    " echom "setting php options(tab indent)"
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   endfunction
 endif
 
@@ -63,8 +63,10 @@ augroup indentCodeGroup
   autocmd FileType php call PhpIndentSpace()
   autocmd BufRead,BufEnter /var/www/html/po-system/* call PhpIndentTab()
   autocmd BufRead,BufEnter /var/www/html/dronten/* call PhpIndentTab()
+  autocmd BufRead,BufEnter /var/www/html/measter/* call PhpIndentTab()
   autocmd BufRead,BufEnter /var/www/html/affiliateBO/* call PhpIndentTab()
   autocmd BufRead,BufEnter /var/www/html/leanstock/* call PhpIndentTab()
+  autocmd BufRead,BufEnter /var/www/html/keg/* call PhpIndentTab()
   autocmd FileType ruby,eruby call RubyIndent()
   autocmd FileType python call PythonIndent()
 augroup END
@@ -113,6 +115,13 @@ function! RunPHPTestFunction()
 
   if( !empty( matchstr( filePath, 'dronten' ) ) )
     let torun = '/var/www/html/dronten/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
+
+  elseif( !empty( matchstr( filePath, 'keg' ) ) )
+    let torun = '/var/www/html/keg/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
+
+  elseif( !empty( matchstr( filePath, 'measter' ) ) )
+    let torun = 'cd /var/www/html/measter/dev && php artisan dusk --filter ' . functionName . '$ ' . filePath
+
   else
     let torun = '/var/www/html/leanstock/tests/run_tests.sh --filter ' . functionName . '$ ' . filePath
   endif
@@ -127,6 +136,13 @@ function! RunPHPTestFile()
 
   if( !empty( matchstr( filePath, 'dronten' ) ) )
     let torun = '/var/www/html/dronten/tests/run_tests.sh ' . filePath
+
+  elseif( !empty( matchstr( filePath, 'keg' ) ) )
+    let torun = '/var/www/html/keg/tests/run_tests.sh ' . filePath
+
+  elseif( !empty( matchstr( filePath, 'measter' ) ) )
+    let torun = 'cd /var/www/html/measter/dev && php artisan dusk ' . filePath
+
   else
     let torun = '/var/www/html/leanstock/tests/run_tests.sh ' . filePath
   endif
@@ -320,8 +336,10 @@ let g:ctrlp_custom_ignore = {
 let g:airline_powerline_fonts=1
 
 " Ultisnips custom mappings
+" set rtp+=~/Dropbox/UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-k>"
+" let g:UltiSnipsSnippetDirectories=$HOME.'/Dropbox/UltiSnips'
 
 " YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']

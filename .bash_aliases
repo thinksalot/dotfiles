@@ -42,6 +42,8 @@ alias ocned='cd /var/www/po-system/public_html/'
 alias dr='cd /var/www/html/dronten/'
 alias is='cd /var/www/html/leanstock/'
 alias bio='cd /var/www/html/affiliateBO/'
+alias ke='cd /var/www/html/keg/'
+alias me='cd /var/www/html/measter/'
 
 # git
 alias ga='git add'

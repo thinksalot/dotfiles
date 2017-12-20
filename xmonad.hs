@@ -42,11 +42,12 @@ main=do
 	xmproc <- spawnPipe "gnome-power-manager &"
 	xmproc <- spawnPipe "dropbox start"
 	xmprox <- spawnPipe "gnome-sound-applet"
+	xmprox <- spawnPipe "syndaemon -i 1 -K -d"  -- Re-enable touchpad only after 1 sec of last key press
 	xmproc <- spawnPipe "xmobar" -- Launch xmobar last, after spawning all applets
 
 	xmonad $defaultConfig {
 		logHook = dynamicLogWithPP xmobarPP
-		{ 
+		{
 			ppOutput = hPutStrLn xmproc,
 			ppTitle = xmobarColor "green" "" . shorten 50
 		},
